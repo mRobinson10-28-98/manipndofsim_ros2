@@ -1,0 +1,3 @@
+[submodule "maniptools"]
+	path = maniptools
+	url = https://github.com/mRobinson10-28-98/maniptools
