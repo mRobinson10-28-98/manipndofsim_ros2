@@ -10,6 +10,14 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+# Include directories 
+include_directories(/usr/include/eigen3)
+include_directories(./maniptools/include)
+link_directories(./maniptools/lib)
+
+# maniptools library build
+add_subdirectory(./maniptools)
+
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -18,6 +26,7 @@ find_package(geometry_msgs REQUIRED)
 
 add_executable(manip2dof_sim src/manip2dof_sim.cpp)
 ament_target_Dependencies(manip2dof_sim rclcpp std_msgs geometry_msgs) 
+target_link_libraries(manip2dof_sim maniptools)
 
 install(TARGETS
   manip2dof_sim

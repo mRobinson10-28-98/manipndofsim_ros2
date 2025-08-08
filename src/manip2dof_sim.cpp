@@ -5,6 +5,8 @@
 #include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/vector3_stamped.hpp"
 
+#include "ManipNDof.hpp"
+
 using std::placeholders::_1;
 
 class Manip2Dof_Sim : public rclcpp::Node
